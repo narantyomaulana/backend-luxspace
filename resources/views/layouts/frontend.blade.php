@@ -11,7 +11,7 @@
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
 
-    {{-- <link rel="manifest" href="site.webmanifest" /> --}}
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="apple-touch-icon" href="{{ url('/frontend/images/content/favicon.png') }}" />
     <!-- Place favicon.ico in the root directory -->
 
