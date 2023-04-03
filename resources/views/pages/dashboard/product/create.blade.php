@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div>
-                {{-- conditio error bsa digunakan semua  --}}
+                {{-- condition error bsa digunakan semua  --}}
                 @if ($errors->any())
                     <div class="mb-5" role="alert">
                         <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
