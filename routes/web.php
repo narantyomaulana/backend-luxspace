@@ -34,7 +34,7 @@ Route::middleware(['auth:sanctum','verified'])->name('dashboard.')->prefix('dash
     Route::get('/', [DashboardController::class, 'index'])->name('index'); //dashboard.index cara memanggilnya
     Route::middleware(['admin',])->group(function(){
         Route::resource('product', ProductController::class);
-        Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
+        Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([ // fungsi shallow buat nesting route
             'index', 'create', 'store', 'destroy'
         ]);
     });

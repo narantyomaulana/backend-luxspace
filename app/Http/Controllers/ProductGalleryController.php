@@ -23,7 +23,7 @@ class ProductGalleryController extends Controller
             $query = ProductGallery::query();
 
             return DataTables::of($query)
-                ->addColumn('action', function($item){ // untuk edit
+                ->addColumn('action', function($item){
                     return '
                         <form class="inline-block" action="'. route('dashboard.gallery.destroy', $item->id) .'" method="POST">
                             <button class="bg-red-500 text-white rounded-md px-2 py-1 m-2">
