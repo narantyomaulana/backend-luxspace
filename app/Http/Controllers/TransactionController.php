@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TransactionRequest;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class TransactionController extends Controller
             return DataTables::of($query)
                 ->addColumn('action', function($item){ // untuk edit
                     return '
-                        <a class="inline-block border border-cyan-600 bg-cyan-700 text-gray rounded-md px-2 py-1 m-1 transition duration-500 ease select-none hover:bg-cyan-800 focus:outline-none focus:shadow-outline" 
+                        <a class="inline-block border border-blue-500 bg-blue-500 text-white rounded-md px-2 py-1 m-1 transition duration-500 ease select-none hover:bg-blue-800 focus:outline-none focus:shadow-outline" 
                             href="' . route('dashboard.transaction.show', $item->id) . '">
                             Show
                         </a>
@@ -104,9 +105,13 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TransactionRequest $request, Transaction $transaction)
     {
-        //
+        $data  = $request->all();
+
+        $transaction->update($data);
+
+        return redirect()->route('dashboard.transaction.index');
     }
 
     /**
