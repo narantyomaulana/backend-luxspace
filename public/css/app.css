@@ -1148,6 +1148,9 @@ select {
 .-mt-px {
   margin-top: -1px;
 }
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -1216,9 +1219,6 @@ select {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 .block {
   display: block;
@@ -1595,10 +1595,6 @@ select {
 }
 .border-transparent {
   border-color: transparent;
-}
-.border-gray-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
 .bg-black {
   --tw-bg-opacity: 1;
