@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductGalleryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ProductGalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,10 @@ Route::middleware(['auth:sanctum','verified'])->name('dashboard.')->prefix('dash
         Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([ // fungsi shallow buat nesting route
             'index', 'create', 'store', 'destroy'
         ]);
+        Route::resource('transaction', TransactionController::class)->only([ // fungsi shallow buat nesting route
+            'index', 'show', 'edit', 'update'
+        ]);
+
     });
 });
 
