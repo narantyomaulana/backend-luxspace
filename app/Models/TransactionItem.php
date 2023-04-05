@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TransactionItem extends Model
 {
@@ -16,8 +17,8 @@ class TransactionItem extends Model
         
     ];
 
-    public function products()
+    public function product()
     {
-        return $this->hashOne(Products::class, 'id', 'products_id');
+        return $this->hasOne(Product::class, 'id', 'products_id');
     }
 }
