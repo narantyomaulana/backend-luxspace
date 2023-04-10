@@ -29,15 +29,22 @@ class FrontendController extends Controller
             'users_id' => Auth::user()->id,
             'products_id' => $id
         ]);
-        
+
         return redirect('cart');
     }
 
     public function cart(Request $request)
     {
+        $carts = Cart::with(['product.galleries'])->where('users_id', Auth::user()->id)->get();
+        return view('pages.frontend.cart', compact('carts'));
 
-        return view('pages.frontend.cart');
-
+    }
+    public function cartDelete(Request $request, $id)
+    {
+        $item = Cart::findOrFail($id); 
+        $item->delete();
+        
+        return redirect('cart');
     }
     public function success(Request $request)
     {
