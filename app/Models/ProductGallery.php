@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class ProductGallery extends Model
 {
     use HasFactory, SoftDeletes;
+    
     protected $fillable = [
         'products_id', 'url', 'is_featured'
     ];
