@@ -44,7 +44,7 @@ class ProductController extends Controller
                 ->editColumn('price', function($item){
                 return number_format($item->price);
             })
-            ->rawColumns(['action']) //digunakan agar a href bisa digunakan
+            ->rawColumns(['action']) //digunakan tag html bisa digunakan
             ->make();
         }
         return view('pages.dashboard.product.index');

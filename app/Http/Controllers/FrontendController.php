@@ -17,7 +17,8 @@ class FrontendController extends Controller
     public function details(Request $request, $slug)
     {
         $product = Product::with(['galleries'])->where('slug', $slug)->firstOrFail();//fungsi firstOrFail jika slug urlnya salah maka muncul 404
-        return view('pages.frontend.details',compact('product'));
+        $recommendations = Product::with(['galleries'])->inRandomOrder()->limit(4)->get(); //InrandomOrder Digunakan buat mengambil data random 
+        return view('pages.frontend.details',compact('product','recommendations'));
 
     }
     public function cart(Request $request)
